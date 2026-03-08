@@ -1,0 +1,927 @@
+*{
+box-sizing:border-box;
+}
+
+
+body{
+background:#000;
+color:#fff;
+font-family:sans-serif;
+margin:0;
+}
+
+html, body {
+height:100%;
+margin: 0;
+}
+
+.gold{
+color:#d4af37;
+}
+
+.card{
+background:#111;
+padding:15px;
+border-radius:10px;
+margin:10px;
+}
+
+
+/*  ------ Bottom NAv ------*/
+
+.bottom-nav{
+position:fixed;
+bottom:0;
+width:100%;
+height:65px;
+background:#000;
+display:flex;
+justify-content:space-around;
+align-items:center;
+border-top-left-radius:20px;
+border-top-right-radius:20px;
+box-shadow:0 -4px 15px rgba(0,0,0,0.6);
+border-top:1px solid #d4af37;
+}
+
+.bottom-nav a{
+color:#888;
+font-size:22px;
+transition:0.2s;
+}
+
+.bottom-nav a:hover{
+color:#d4af37;
+}
+
+.bottom-nav .active{
+color:#d4af37;
+transform:scale(1.1);
+}
+
+
+
+  /*-------- Mini Player -------- */
+
+.mini-player{
+position:fixed;
+bottom:80px;
+left:12px;
+right:12px;
+background:#111;
+padding:16px 40px 16px 12px; /* extra space on right */
+border-radius:14px;
+border:1px solid #d4af37;
+box-shadow:0 6px 18px rgba(0,0,0,0.6);
+}
+
+.mini-close{
+position:absolute;
+top: 0;
+right: 0;
+width:26px;
+height:26px;
+display:flex;
+align-items:center;
+justify-content:center;
+background:#0a0a0a;
+border:1px solid #d4af37;
+border-radius:50%;
+color:#d4af37;
+font-size:12px;
+cursor:pointer;
+z-index:5;
+}
+
+.mini-circle{
+position:fixed;
+bottom:90px;
+right:20px;
+width:55px;
+height:55px;
+border-radius:50%;
+border:1px solid #d4af37;
+background:#0a0a0a;
+color:#d4af37;
+font-size:20px;
+cursor:pointer;
+display:flex;
+align-items:center;
+justify-content:center;
+box-shadow:0 0 12px rgba(212,175,55,0.4);
+z-index:100;
+}
+
+.player-row{
+display:flex;
+align-items:center;
+gap:10px;
+flex-wrap:wrap;
+}
+
+.track-text{
+min-width:110px;
+max-width:130px;
+}
+
+.title{
+font-size:13px;
+font-weight:600;
+}
+
+.artist{
+font-size:11px;
+color:#aaa;
+}
+
+
+/*  ------ Seek bar ------*/
+
+.seekbar{
+flex:1;
+min-width:80px;
+accent-color:#d4af37;
+}
+
+.seekbar{
+  min-width:60px;
+}
+
+
+
+/*  ------ Controls ------*/
+
+.controls{
+display:flex;
+align-items:center;
+gap:10px;
+flex-shrink:0;
+}
+
+.controls button{
+background:none;
+border:none;
+color:#d4af37;
+font-size:18px;
+cursor:pointer;
+}
+
+
+.controls button:nth-child(2){
+font-size:22px;
+}
+
+.controls button{
+  font-size:16px;
+}
+
+
+
+/* ------- Surah ------- */
+
+.surah-container{
+width:100%;
+max-width:1200px;
+margin:auto;
+padding:0 16px 200px 16px; /* extra space for nav */
+}
+
+.surah-card{
+background:#0a0a0a;
+border:1px solid #d4af37;
+border-radius:16px;
+padding:16px;
+margin: 10px 0;
+display:flex;
+align-items:center;
+justify-content:space-between;
+position:relative;
+}
+
+.surah-left{
+display:flex;
+align-items:center;
+gap:14px;
+}
+
+.surah-number{
+width:42px;
+height:42px;
+border:2px solid #d4af37;
+border-radius:10px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:bold;
+color:#d4af37;
+}
+
+.surah-title{
+font-size:16px;
+font-weight:600;
+}
+
+.surah-title-row{
+display:flex;
+align-items:center;
+gap:8px;
+}
+
+.surah-sub{
+font-size:13px;
+color:#aaa;
+}
+
+.surah-right{
+text-align:right;
+margin-right:60px;
+}
+
+.surah-arabic{
+font-size:20px;
+font-family: "Amiri", serif;
+}
+
+.surah-verses{
+font-size:12px;
+color:#aaa;
+}
+
+.surah-day{
+border:1px solid #d4af37;
+border-radius:16px;
+padding:24px;
+background:linear-gradient(145deg,#0b0b0b,#111);
+box-shadow:0 0 20px rgba(212,175,55,0.25);
+margin-bottom:25px;
+}
+
+.surah-hero{
+border:1px solid #d4af37;
+border-radius:18px;
+padding:28px;
+background:linear-gradient(145deg,#0a0a0a,#111);
+box-shadow:0 0 25px rgba(212,175,55,0.25);
+margin-bottom:25px;
+}
+
+
+
+/* ------ Hero ------ */
+
+.hero-text h2{
+color:#d4af37;
+margin:8px 0;
+}
+
+.hero-play{
+background:#d4af37;
+border:none;
+padding:10px 20px;
+border-radius:20px;
+color:black;
+cursor:pointer;
+font-weight:600;
+margin-top:10px;
+}
+
+
+
+
+/* ------ Play Button------ */
+
+.play-btn{
+position:absolute;
+right:14px;
+width:42px;
+height:42px;
+border-radius:50%;
+border:none;
+background:white;
+color:black;
+display:flex;
+align-items:center;
+justify-content:center;
+cursor:pointer;
+}
+
+
+/* ----- Search Bar ------ */
+
+.search-bar{
+width:100%;
+padding:12px;
+background:#0a0a0a;
+border:1px solid #d4af37;
+border-radius:12px;
+color:white;
+font-size:14px;
+margin-bottom:20px;
+}
+
+.search-bar::placeholder{
+color:#777;
+}
+
+.search-wrapper{
+position:sticky;
+top:0;
+padding:15px 20px;
+z-index:10;
+}
+
+
+/* ---- Section ----  */
+
+.section-title{
+margin-top:20px;
+font-size:18px;
+}
+
+
+/* ---- Recent ----  */
+
+.recent-item{
+padding:12px;
+border:1px solid #222;
+border-radius:10px;
+margin-top:10px;
+background:#0a0a0a;
+}
+
+.recent-title{
+font-size:14px;
+font-weight:600;
+}
+
+.recent-artist{
+font-size:12px;
+color:#aaa;
+}
+
+
+/* ---- Qari Selector ----  */
+
+.qari-selector{
+margin:2px 10px;
+display: flex;
+align-items: center;
+}
+
+.qari-selector select{
+appearance:none;
+width: 260px;
+max-width: 90%;
+padding:10px 14px;
+background:#0a0a0a;
+color:#fff;
+border:1px solid #D4AF37;
+border-radius:12px;
+font-size:14px;
+cursor:pointer;
+box-shadow:0 0 10px rgba(212,175,55,0.15);
+}
+
+.qari-selector select:focus{
+border-color:#D4AF37;
+box-shadow:0 0 8px rgba(212,175,55,0.4);
+}
+
+
+/* ---- Favourite Button ----  */
+
+.fav-btn{
+background:none;
+border:none;
+color:#d4af37;
+cursor:pointer;
+font-size:14px;
+}
+
+
+/* ---- Home Page ----  */
+
+
+.home-page{
+height:100vh;
+display:flex;
+flex-direction:column;
+}
+
+/* FIXED HEADER */
+
+.home-fixed{
+position:sticky;
+top:0;
+background:#000;
+padding:20px;
+z-index:5;
+}
+
+/* LOGO AREA */
+
+.home-top{
+display:flex;
+align-items:center;
+gap:14px;
+margin-bottom:18px;
+}
+
+.home-logo{
+width: 70px;
+height: 42px;
+object-fit: contain;
+}
+
+.home-title h2{
+color:#d4af37;
+margin:0;
+font-size: 20px;
+font-weight: 600;
+}
+
+.home-title p{
+margin:0;
+font-size:12px;
+color:#888;
+}
+
+.home-divider{
+height:1px;
+background:linear-gradient(to right,transparent,#d4af37,transparent);
+margin:20px 0;
+}
+
+/* SURAH OF DAY */
+
+.surah-day-card{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px;
+border-radius:16px;
+border:1px solid #d4af37;
+background:linear-gradient(145deg,#0a0a0a,#121212);
+box-shadow:0 0 18px rgba(212,175,55,0.15);
+margin-bottom:22px;
+}
+
+
+.surah-day-card h4{
+font-size:13px;
+color:#aaa;
+margin:0 0 4px 0;
+}
+
+.surah-day-card h3{
+color:#d4af37;
+font-size:20px;
+margin:0;
+}
+
+.play-day{
+background:#d4af37;
+color:#000;
+border:none;
+padding:8px 18px;
+border-radius:20px;
+font-weight:600;
+cursor:pointer;
+transition:.2s;
+}
+
+.play-day:hover{
+transform:scale(1.05);
+}
+
+
+/* SCROLL AREA */
+
+.home-content{
+flex:1;
+overflow-y: auto;
+padding:20px 20px 140px 20px;
+scroll-behavior: smooth;
+}
+
+/* GRID */
+
+.home-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:16px;
+}
+
+/* SMALL CARDS */
+
+.small-card{
+background:#0b0b0b;
+border-radius:16px;
+border:1px solid #d4af37;
+padding:20px 16px;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+gap:6px;
+cursor:pointer;
+transition:0.25s;
+box-shadow:0 0 10px rgba(212,175,55,0.08);
+}
+
+.small-card:hover{
+transform:translateY(-3px);
+box-shadow:0 0 18px rgba(212,175,55,0.2);
+}
+
+
+/* HEADER LAYOUT */
+
+.app-header{
+display:flex;
+align-items:center;
+gap:12px;
+margin:20px 0 25px 0;
+}
+
+
+/* TITLE */
+
+.app-title-box{
+display:flex;
+flex-direction:column;
+line-height:1.2;
+}
+
+
+
+/* ------ Install Pop ------ */
+
+.install-popup{
+  position:fixed;
+  bottom:90px;
+  left:50%;
+  transform:translateX(-50%);
+  background:#0a0a0a;
+  border:1px solid #d4af37;
+  border-radius:12px;
+  padding:12px 18px;
+  display:flex;
+  gap:10px;
+  z-index:1000;
+}
+
+.install-popup button{
+  background:#d4af37;
+  border:none;
+  padding:6px 12px;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+
+
+/* ------ Nasheed Card------ */
+
+.nasheed-card{
+  border:1px solid #d4af37;
+  border-radius:14px;
+  padding:16px;
+  margin-bottom:12px;
+  background:#0a0a0a;
+  cursor:pointer;
+}
+
+.nasheed-card h4{
+  margin:0;
+}
+
+.nasheed-card p{
+  font-size:13px;
+  color:#aaa;
+}
+
+
+
+/* ---- Splash Screen -----*/
+
+.splash-screen{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+background:#000;
+color:#D4AF37;
+}
+
+.splash-screen img{
+width:120px;
+margin-bottom:20px;
+}
+
+
+
+/*------- Back Button -----*/
+
+.back-btn{
+display:inline-flex;
+align-items:center;
+gap:8px;
+background:#0a0a0a;
+color:#D4AF37;
+border:1px solid #D4AF37;
+border-radius:12px;
+padding:10px 16px;
+margin: 10px;
+font-size:14px;
+font-weight:500;
+cursor:pointer;
+transition:all .25s ease;
+}
+
+.back-btn:hover{
+background:#D4AF37;
+color:#000;
+box-shadow:0 0 12px rgba(212,175,55,0.5);
+}
+
+.back-btn svg{
+font-size:16px;
+}
+
+
+
+/*----- Profile ------*/
+
+
+.profile-container{
+max-width:900px;
+margin:auto;
+padding:20px 16px 160px 16px; 
+}
+
+.profile-header{
+text-align:center;
+margin-bottom:30px;
+}
+
+.profile-avatar{
+width:120px;
+height:120px;
+border-radius:50%;
+margin-bottom:10px;
+object-fit:cover;
+}
+
+.profile-card{
+cursor:pointer;
+transition:0.2s;
+}
+
+.profile-card:hover{
+transform:scale(1.03);
+}
+
+
+
+/* Mobile */
+
+@media (max-width:768px){
+
+.profile-avatar{
+width:140px;
+height:140px;
+}
+
+}
+.profile-section{
+margin:20px 0 10px;
+color:#D4AF37;
+}
+
+.profile-menu{
+display:flex;
+flex-direction:column;
+gap:12px;
+margin-bottom:20px;
+}
+
+.profile-card{
+display:flex;
+align-items:center;
+gap:12px;
+padding:14px;
+border-radius:12px;
+font-weight:500;
+cursor:pointer;
+color:white;
+}
+
+.profile-card svg{
+font-size:18px;
+}
+
+.profile-card.red{
+background:#8b0000;
+}
+
+.profile-card.purple{
+background:#5a3d9a;
+}
+
+.profile-card.green{
+background:#14532d;
+}
+
+.profile-card.gray{
+background:#333;
+}
+
+.profile-card.teal{
+background:#065f46;
+}
+
+.profile-card.blue{
+background:#1e3a8a;
+}
+
+
+
+/*----- Feedback -------*/
+
+.feedback-btn{
+display:inline-block;
+margin-top:15px;
+padding:10px 18px;
+background:#D4AF37;
+color:black;
+font-weight:600;
+border-radius:20px;
+text-decoration:none;
+transition:0.2s;
+}
+
+.feedback-btn:hover{
+transform:scale(1.05);
+}
+
+
+/* QARI CARDS */
+
+.qari-grid{
+
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:14px;
+margin-top:20px;
+
+}
+
+.qari-card{
+
+position:relative;
+border-radius:14px;
+overflow:hidden;
+cursor:pointer;
+border:1px solid #d4af37;
+
+}
+
+.qari-card img{
+
+width:100%;
+height:120px;
+object-fit:cover;
+filter:brightness(0.7);
+
+}
+
+.qari-name{
+
+position:absolute;
+bottom:10px;
+left:12px;
+color:#fff;
+font-weight:600;
+font-size:14px;
+
+}
+
+
+
+/*  ---- Dev Info -----*/
+
+.dev-links{
+display:flex;
+justify-content:center;
+gap:12px;
+flex-wrap:wrap;
+}
+
+.dev-link{
+display:flex;
+align-items:center;
+gap:6px;
+border:1px solid #d4af37;
+padding:8px 14px;
+border-radius:20px;
+text-decoration:none;
+color:#d4af37;
+font-size:13px;
+transition:0.2s;
+}
+
+.dev-link svg{
+font-size:16px;
+}
+
+.dev-link:hover{
+background:#d4af37;
+color:black;
+}
+
+
+/* ------ Media Queries ------ */
+
+
+@media (min-width:768px){
+.home-grid{
+grid-template-columns:repeat(2,1fr);
+}
+}
+
+
+@media (min-width:1100px){
+.home-grid{
+grid-template-columns:repeat(3,1fr);
+}
+}
+
+@media (max-width:480px){
+.track-text{
+min-width:90px;
+}
+}
+
+@media (min-width:768px){
+
+
+.app-logo{
+height:90px;
+}
+
+.app-title{
+font-size:26px;
+}
+
+.app-sub{
+font-size:14px;
+}
+
+}
+
+
+/* MOBILE HOME CARD FIX */
+
+@media (max-width:600px){
+
+.home-card{
+padding:16px 12px;
+border-radius:14px;
+}
+
+.home-icon{
+font-size:24px;
+margin-bottom:4px;
+}
+
+.home-card h3{
+font-size:16px;
+margin-bottom:4px;
+}
+
+.home-card p{
+font-size:12px;
+color:#aaa;
+}
+
+}
+
+@media (max-width:600px){
+
+.surah-hero{
+padding:18px 16px;
+border-radius:14px;
+}
+
+.hero-text h2{
+font-size:20px;
+}
+
+.hero-play{
+padding:8px 16px;
+font-size:14px;
+}
+
+}

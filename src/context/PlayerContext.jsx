@@ -17,14 +17,24 @@ const [duration,setDuration] = useState(0)
 
 const [speed,setSpeed] = useState(1)
 
+
+/* ---- Recent ---- */
+
 const [recent,setRecent] = useState(()=>{
 const saved = localStorage.getItem("recent")
 return saved ? JSON.parse(saved) : []
 })
 
-const [qari,setQari] = useState("ar.alafasy")
+/* --- Favorites ---- */
 
-const [favorites,setFavorites] = useState([])
+const [favorites, setFavorites] = useState(() => {
+const saved = localStorage.getItem("favorties")
+return saved ? JSON.parse(saved) : []
+})
+
+/* ---- Qari ---- */
+
+const [qari,setQari] = useState("ar.alafasy")
 
 
 /* ---------- RECENT TRACKS ---------- */
@@ -118,6 +128,38 @@ setIsPlaying(false)
 
 }
 
+/*  ----- Media Session ----- */
+
+if("mediaSession" in navigator) {
+
+    navigator.mediaSession.metadata = new MediaMetadata ({
+
+        title:item.title,
+        artist:item.artist,
+        album:"Quro",
+
+        artwork:[
+            {
+                src:"/icon-192.png",
+                sizes:"192x192",
+                type:"image/png"
+            },
+            {
+                src:"/icon-512.png",
+                sizes:"512x512",
+                type:"image/png"
+            }
+        ]
+    })
+
+    navigator.mediaSession.setActionHandler("play",togglePlay)
+    navigator.mediaSession.setActionHandler("pause",togglePlay)
+    navigator.mediaSession.setActionHandler("nexttrack", nextTrack)
+    navigator.mediaSession.setActionHandler("previoustrack",prevTrack)
+}
+
+}
+
 
 /* ---------- PLAY TRACK ---------- */
 
@@ -130,34 +172,6 @@ setCurrentIndex(index)
 
 startAudio(item)
 
-/* MEDIA SESSION (lock screen controls) */
-
-if ("mediaSession" in navigator){
-
-navigator.mediaSession.metadata = new MediaMetadata({
-
-title:item.title,
-artist:item.artist,
-album:"Quro",
-
-artwork:[
-{
-src:"/icon-192.png",
-sizes:"192x192",
-type:"image/png"
-}
-]
-
-})
-
-navigator.mediaSession.setActionHandler("play",togglePlay)
-navigator.mediaSession.setActionHandler("pause",togglePlay)
-navigator.mediaSession.setActionHandler("previoustrack",prevTrack)
-navigator.mediaSession.setActionHandler("nexttrack",nextTrack)
-
-}
-
-}
 
 
 /* ---------- PLAY / PAUSE ---------- */
@@ -253,17 +267,24 @@ const exists = prev.find(
 f => f.id === item.id && f.type === item.type
 )
 
+let updated
+
 if(exists){
-return prev.filter(
+updated = prev.filter(
 f => !(f.id === item.id && f.type === item.type)
 )
+}else{
+updated = [...prev,item]
 }
 
-return [...prev,item]
+localStorage.setItem("favorites",JSON.stringify(updated))
+
+return updated
 
 })
 
 }
+
 
 
 /* ---------- SHUFFLE PLAYLIST ---------- */

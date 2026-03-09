@@ -2,6 +2,7 @@ import { useContext, useState } from "react"
 import { PlayerContext } from "../context/PlayerContext"
 import { surahs } from "../data/surahs"
 import SurahCard from "../components/SurahCard"
+import NasheedCard from "../components/NasheedCard"
 
 import { FaStar } from "react-icons/fa"
 import { MdHistory } from "react-icons/md"
@@ -79,6 +80,8 @@ url:`https://cdn.islamic.network/quran/audio-surah/128/${qari}/${surah.id}.mp3`
 /* FAVORITES */
 
 const favoriteSurahs = favorites.filter(f=>f.type==="surah")
+const favoriteNasheeds = favorites.filter(f=>f.type==="nasheed")
+
 
 return(
 
@@ -229,7 +232,7 @@ onClick={()=>setActiveSection(null)}
 )}
 
 
-{/* FAVORITES */}
+{/* FAVORITES  Surahs*/}
 
 {activeSection==="favorites" && favoriteSurahs.map((fav,index)=>{
 
@@ -249,6 +252,19 @@ index={index}
 )
 
 })}
+
+
+{/*  Favorite Nasheeds */}
+
+{activeSection === "nasheeds" && favoriteNasheeds.map((item, index) =>(
+
+    <NasheedCard
+    key = {item.id}
+    nasheed={item}
+    playlist={favoriteNasheeds}
+    index={index}
+    />
+))}
 
 
 {/* RECENTS */}
